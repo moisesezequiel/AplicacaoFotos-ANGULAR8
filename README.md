@@ -1,0 +1,1 @@
+# AplicacaoFotos-ANGULAR8
