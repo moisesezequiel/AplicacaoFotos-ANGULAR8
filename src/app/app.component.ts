@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component } from '@angular/core';
+import { PhotoService } from './photos/photo/photoService';
 
 @Component({
   selector: 'app-root',
@@ -7,12 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-photos :Object[] = [];
-constructor(http: HttpClient){
-  //requisição para api e atribuindo o resultado em nossa lista de photos
-  http.get<Object[]>('http://localhost:3000/flavio/photos').subscribe(photosApi => {
-        this.photos = photosApi
-    });
+  photos: Object[] = [];
 
-}
+  constructor(service : PhotoService) {
+    service.listFromUser('flavio')
+    .subscribe(protosApi => this.photos = protosApi);
+
+  }
 }
