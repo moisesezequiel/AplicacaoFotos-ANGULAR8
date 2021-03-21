@@ -7,9 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-photos = [];
-constructor(http: HttpClient){4
-  console.log(http)
+photos :Object[] = [];
+constructor(http: HttpClient){
+  //requisição para api e atribuindo o resultado em nossa lista de photos
+  http.get<Object[]>('http://localhost:3000/flavio/photos').subscribe(photosApi => {
+        this.photos = photosApi
+    });
 
 }
 }
