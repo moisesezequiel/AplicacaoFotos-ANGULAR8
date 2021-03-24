@@ -5,7 +5,7 @@ import { PhotosFormComponent } from "./photos/photos-form/photos-form.component"
 import { PhotosListComponent } from "./photos/photos-list/photos-list.component";
 
 const routes : Routes = [
-  {path: 'user/flavio' , component: PhotosListComponent},
+  {path: 'user/:userName' , component: PhotosListComponent},
   {path: 'p/add' , component: PhotosFormComponent},
   {path: '**' , component: NotFoundComponent},
 
